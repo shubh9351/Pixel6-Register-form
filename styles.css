@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(pixel6-6.jpg) no-repeat;
+  background-size: cover;
+}
+
+.log-box {
+  background: rgba(0, 0, 0, .5);
+  color: #fadcac;
+  background-color: #474e5d;
+  width: 420px;
+  height: 530px;
+  top: 50%;
+  left: 50%;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  position: absolute;
+  padding: 70px 30px;
+}
+
+.user {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+h1 {
+  margin: 0;
+  padding: 0 0 30px;
+  text-align: center;
+}
+
+.Vodafone {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.warning {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.Jio {
+  color: blue;
+  margin-bottom: 20px;
+}
+
+.Idea {
+  color: yellow;
+  margin-bottom: 20px;
+}
+
+.log-box input {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.log-box input[type="text"],
+.log-box input[type="Email"],
+.log-box input[type="tel"],
+.log-box input[type="OTP"] {
+  border: none;
+  border-bottom: 1px solid;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #bbe1fa;
+  font-size: 16px;
+  width: 100%;
+}
+
+.log-box input[type="OTP"] {
+  text-align: center;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+.submit {
+  border: 2px solid #fadcac;
+  background: transparent;
+  color: #bbe1fa;
+  width: 35%;
+  padding: 14px 28px;
+  margin-top: 18px;
+  font-size: 16px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.submit:hover {
+  background: #fadcac;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*css for model*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.form-Group {
+  text-align: center;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+#otpGen {
+  width: 30%;
+}
+
+.pinMsg {
+  color: #bbe1fa;
+}
+
+.userMsg {
+  color: #bbe1fa;
+}
+
+.valSuccess {
+  color: #ff7171;
+}
+
+#valFailure {
+  color: white;
+}
+
+@media (max-width:1050px) {
+  body {
+    background: url(pixel6-6.jpg) repeat;
+  }
+}

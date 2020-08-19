@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Validation</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="validate.js" defer charset="utf-8"> </script>
+
+</head>
+
+<body>
+
+  <div class="log-box">
+    <form action="#" method="post">
+      <h1 class="heading"> Account Validation </h1>
+      <p> Click on button to generate otp <button type="button" class"submitOtp" onclick=" return otpGeneration()"> Generate OTP </button></p>
+      <p id="userMsg"> </p>
+      <p id="pinMsg" class="pinMsg"> </p>
+
+      <div class="form-Group">
+        <label for="otpGen"> Enter your OTP and click validate for confirmation:- </label> <br />
+        <input name="otpGen" id="otpGen" type="OTP" onfocus="this.value=''" value="" required autocomplete="off" />
+        <p id="valFailure" class="" style="margin-top:20px"> </p>
+      </div>
+      <button type="button" class="submit valid" id="countButton" onclick="return otpValidation()">Validate</button>
+
+    </form>
+  </div>
+</body>
+</html>

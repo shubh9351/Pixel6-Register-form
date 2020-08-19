@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Register</title>
+  <!-- external stylesheet to improve code structure -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- external javascript file with defer loading method -->
+  <script type="text/javascript" src="script.js" defer charset="utf-8"></script>
+
+</head>
+
+<body>
+
+  <!-- creating a div in which form can be seen -->
+  <div class="log-box">
+    <img src="user.png" class="user" alt="User-Photo">
+    <h1>Register</h1>
+    <form action="#">
+      <div class="form-group">
+        <label for="fname"> Full Name:- </label> <br />
+        <input name="fName" id="fName" type="text" required onkeyup="checkName(); return false;" autocomplete="off" />
+        <p id="fullName" class="warning" style="margin-top:0px"> </p>
+      </div>
+
+      <div class="form-group">
+        <label for="emailId"> Email :- </label><br />
+        <input name="emailId" id="emailId" type="Email" required onkeyup="checkEmail(); return false;" autocomplete="off" />
+        <p id="emails" class="warning" style="margin-top:0px"> </p>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNum"> Phone Number :-</label><br />
+        <input name="phoneNum" id="phoneNum"  type="text" required onkeyup="checkPhone(); return false;" autocomplete="off" />
+        <p id="phone" class="warning" style="margin-top:0px"></p>
+      </div>
+      <button type="button" class="submit" onclick="return validForm()" >Submit</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    // creating function which will validate complete form
+    function validForm(){
+
+      var user = document.getElementById("fName").value;
+      var mobileNumber = document.getElementById("phoneNum").value;
+      var wordCount = user.split(" ").length;
+      var emails = document.getElementById('emailId').value;
+      console.log(mobileNumber.length);
+      localStorage.setItem("Name", user);
+      localStorage.setItem("Number", mobileNumber);
+
+
+      if( mobileNumber == " "){
+        document.getElementById('phone').innerHTML = " ** Please fill the Phone number";
+        location.replace("index.html");
+        return false;
+      }else if(mobileNumber.length != 14){
+        document.getElementById('phone').innerHTML = "** Mobile Number must be 10 digits only ";
+        location.replace("index.html");
+        return false;
+      }else if(emails === " "){
+        document.getElementById('emails').innerHTML = " ** Please fill the email id ";
+        location.replace("index.html");
+        return false;
+      }else if (emails.indexOf('@') <= 0){
+        document.getElementById('emails').innerHTML = " ** Invalid @ Position";
+        location.replace("index.html");
+        return false;
+      }else if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
+        document.getElementById('emails').innerHTML = " **  Invalid . Position";
+        location.replace("index.html");
+        return false;
+      }else if (user === " "){
+        document.getElementById('fullName').innerHTML = " ** Please fill the full name.";
+        location.replace("index.html");
+        return false;
+      }else if (!isNaN(user)) {
+        document.getElementById('fullName').innerHTML = " ** only characters are allowed";
+        location.replace("index.html");
+        return false;
+      }else if (user.length < 4) {
+        document.getElementById('fullName').innerHTML = " ** Name length must be greater than 4 char";
+        location.replace("index.html");
+        return false;
+      }else if (wordCount < 2) {
+        document.getElementById('fullName').innerHTML = "** Field should contain min 2 words.";
+        location.replace("index.html");
+        return false;
+      }else {
+          document.getElementById('fullName').innerHTML = " ";
+          location.replace("validate.html");
+          return true;
+      }
+    }
+  </script>
+</body>
+
+</html>
