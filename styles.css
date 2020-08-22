@@ -39,6 +39,7 @@ h1 {
 .Vodafone {
   color: red;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .warning {
@@ -49,16 +50,19 @@ h1 {
 .Jio {
   color: blue;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .Idea {
   color: yellow;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .log-box input {
   width: 100%;
   margin-bottom: 0px;
+  display: inline-block;
 }
 
 .log-box input[type="text"],
@@ -102,9 +106,10 @@ h1 {
   color: black;
 }
 
-a {
+ #state{
   text-decoration: none;
   color: #fff;
+  display: inline-block;
 }
 
 /*css for model*/
@@ -129,15 +134,14 @@ hr {
 #otpGen {
   width: 30%;
 }
-
-.pinMsg {
-  color: #bbe1fa;
+.userMsg,
+.pinMsg,
+.otpVal{
+    color: #bbe1fa;
 }
-
-.userMsg {
-  color: #bbe1fa;
+.otpMsg{
+  text-align: center;
 }
-
 .valSuccess {
   color: #ff7171;
 }
@@ -149,5 +153,9 @@ hr {
 @media (max-width:1050px) {
   body {
     background: url(pixel6-6.jpg) repeat;
+  }
+  .log-box{
+    width: 530px;
+    height: 650px;
   }
 }

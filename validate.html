@@ -9,15 +9,16 @@
 
 </head>
 
-<body>
+<body onload="myFun()">
 
   <div class="log-box">
     <form action="#" method="post">
       <h1 class="heading"> Account Validation </h1>
-      <p> Click on button to generate otp <button type="button" class"submitOtp" onclick=" return otpGeneration()"> Generate OTP </button></p>
-      <p id="userMsg"> </p>
-      <p id="pinMsg" class="pinMsg"> </p>
-
+      <div class="formData">
+        <p>Dear <span id="userMsg" class="userMsg"> </span> ,Thank you for your enquiry. </p>
+        <p> A 4 digit verification number has been sent to your phone number: <span id="pinMsg" class="pinMsg"></span> </p>
+        <p class="otpMsg">Your OTP:- <span id="otpVal" class="otpVal" > </span>  </p>
+      </div>
       <div class="form-Group">
         <label for="otpGen"> Enter your OTP and click validate for confirmation:- </label> <br />
         <input name="otpGen" id="otpGen" type="OTP" onfocus="this.value=''" value="" required autocomplete="off" />

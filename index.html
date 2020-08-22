@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <title>Register</title>
@@ -9,12 +8,9 @@
 
   <!-- external javascript file with defer loading method -->
   <script type="text/javascript" src="script.js" defer charset="utf-8"></script>
-
 </head>
-
 <body>
-
-  <!-- creating a div in which form can be seen -->
+  <!-- creating a div in which holds full form  -->
   <div class="log-box">
     <img src="user.png" class="user" alt="User-Photo">
     <h1>Register</h1>
@@ -28,69 +24,69 @@
       <div class="form-group">
         <label for="emailId"> Email :- </label><br />
         <input name="emailId" id="emailId" type="Email" required onkeyup="checkEmail(); return false;" autocomplete="off" />
-        <p id="emails" class="warning" style="margin-top:0px"> </p>
+        <p id="emails" class="warning"  style="margin-top:0px"> </p>
       </div>
 
       <div class="form-group">
         <label for="phoneNum"> Phone Number :-</label><br />
-        <input name="phoneNum" id="phoneNum"  type="text" required onkeyup="checkPhone(); return false;" autocomplete="off" />
-        <p id="phone" class="warning" style="margin-top:0px"></p>
+        <input name="phoneNum" id="phoneNum"  type="tel" onkeypress="return restrictAlphabets(event)"   required onkeyup="checkPhone(); return false;" autocomplete="off" />
+        <p id="phone" class="warning"  style="margin-top:0px">  </p><span id="state">  </span>
+        <p id="errMsg" class="warning" > </p>
       </div>
+
       <button type="button" class="submit" onclick="return validForm()" >Submit</button>
     </form>
   </div>
 
   <script type="text/javascript">
-    // creating function which will validate complete form
+    // creating function which will validate complete form when user press submit button
     function validForm(){
 
-      var user = document.getElementById("fName").value;
+      var user = document.getElementById("fName").value.toUpperCase();
       var mobileNumber = document.getElementById("phoneNum").value;
       var wordCount = user.split(" ").length;
       var emails = document.getElementById('emailId').value;
       console.log(mobileNumber.length);
+      var firstNum= mobileNumber.slice(1,2);
+      var pattern =/^[a-zA-z ]+$/ ;
       localStorage.setItem("Name", user);
       localStorage.setItem("Number", mobileNumber);
 
-
-      if( mobileNumber == " "){
-        document.getElementById('phone').innerHTML = " ** Please fill the Phone number";
-        location.replace("index.html");
+      if (user.length ===0){
+        document.getElementById('fullName').innerHTML = "** Name Field can not be empty.";
+        return false;
+      }else if(emails.length === 0){
+        document.getElementById('emails').innerHTML = "** Email Field can not be empty.";
+        return false;
+      }else if( mobileNumber.length===0){
+        document.getElementById('errMsg').innerHTML = "**Phone Number can not be empty.";
         return false;
       }else if(mobileNumber.length != 14){
-        document.getElementById('phone').innerHTML = "** Mobile Number must be 10 digits only ";
-        location.replace("index.html");
+        document.getElementById('errMsg').innerHTML = "** Mobile Number must be of 10 digits.  ";
         return false;
-      }else if(emails === " "){
-        document.getElementById('emails').innerHTML = " ** Please fill the email id ";
-        location.replace("index.html");
+      }else if(firstNum!=9 && firstNum!=8 && firstNum!=7 && firstNum!=6){
+        document.getElementById('errMsg').innerHTML = "** Invalid number";
         return false;
       }else if (emails.indexOf('@') <= 0){
-        document.getElementById('emails').innerHTML = " ** Invalid @ Position";
-        location.replace("index.html");
+        document.getElementById('errMsg').innerHTML = " ** Invalid @ Position";
         return false;
       }else if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
         document.getElementById('emails').innerHTML = " **  Invalid . Position";
-        location.replace("index.html");
         return false;
-      }else if (user === " "){
-        document.getElementById('fullName').innerHTML = " ** Please fill the full name.";
-        location.replace("index.html");
+      }else if(!user.match(pattern)){
+        document.getElementById('fullName').innerHTML = " ** only Alphabets are allowed.";
         return false;
-      }else if (!isNaN(user)) {
-        document.getElementById('fullName').innerHTML = " ** only characters are allowed";
-        location.replace("index.html");
-        return false;
-      }else if (user.length < 4) {
+        }else if (user.length < 4) {
         document.getElementById('fullName').innerHTML = " ** Name length must be greater than 4 char";
-        location.replace("index.html");
         return false;
       }else if (wordCount < 2) {
         document.getElementById('fullName').innerHTML = "** Field should contain min 2 words.";
-        location.replace("index.html");
         return false;
       }else {
           document.getElementById('fullName').innerHTML = " ";
+          var otpVal = Math.floor(Math.random() * 1000 + 1000);
+          localStorage.setItem("otpVal", otpVal);
+          console.log(otpVal);
           location.replace("validate.html");
           return true;
       }
