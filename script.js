@@ -30,7 +30,6 @@ document.getElementById("fName").addEventListener("keyup",function checkName(){
   }
 });
 
-
 // adding validation to Email
 document.getElementById("emailId").addEventListener("keyup",function checkEmail(){
   var emails = document.getElementById('emailId').value;
@@ -126,7 +125,6 @@ function restrictAlphabets(e){
    		return false;
     }
   }
-
   // creating function which will revalidate complete form when user press submit button
   document.getElementById("submit").addEventListener("click" ,function validForm(){
     var user = document.getElementById("fName").value.toUpperCase();
