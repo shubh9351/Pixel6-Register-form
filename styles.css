@@ -11,7 +11,7 @@ body {
   color: #fadcac;
   background-color: #474e5d;
   width: 420px;
-  height: 530px;
+  height: 550px;
   top: 50%;
   left: 50%;
   font-weight: bold;
@@ -36,27 +36,15 @@ h1 {
   text-align: center;
 }
 
-.Vodafone {
-  color: red;
-  margin-bottom: 20px;
+.logo{
+  width: 65px;
   display: inline-block;
+  padding-top: 3px;
 }
-
 .warning {
   color: white;
   margin-bottom: 20px;
-}
-
-.Jio {
-  color: blue;
-  margin-bottom: 20px;
-  display: inline-block;
-}
-
-.Idea {
-  color: yellow;
-  margin-bottom: 20px;
-  display: inline-block;
+  margin-top: 8px;
 }
 
 .log-box input {
@@ -83,17 +71,13 @@ h1 {
   text-align: center;
 }
 
-::placeholder {
-  color: rgba(255, 255, 255, .5);
-}
-
 .submit {
   border: 2px solid #fadcac;
   background: transparent;
   color: #bbe1fa;
   width: 35%;
   padding: 14px 28px;
-  margin-top: 18px;
+  margin-top: 0px;
   font-size: 16px;
   position: absolute;
   right: 15px;
@@ -108,23 +92,22 @@ h1 {
 
  #state{
   text-decoration: none;
-  color: #fff;
+  color:#bbe1fa;
+  position: absolute;
   display: inline-block;
+  padding-top: 20px;
+  padding-left: 5px;
 }
 
-/*css for model*/
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 .form-Group {
   text-align: center;
 }
-
 /* Style the horizontal ruler */
 hr {
   border: 1px solid #f1f1f1;
@@ -142,11 +125,8 @@ hr {
 .otpMsg{
   text-align: center;
 }
-.valSuccess {
-  color: #ff7171;
-}
 
-#valFailure {
+.err{
   color: white;
 }
 
@@ -156,6 +136,6 @@ hr {
   }
   .log-box{
     width: 530px;
-    height: 650px;
+    height: 630px;
   }
 }

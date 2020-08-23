@@ -21,10 +21,11 @@
       </div>
       <div class="form-Group">
         <label for="otpGen"> Enter your OTP and click validate for confirmation:- </label> <br />
-        <input name="otpGen" id="otpGen" type="OTP" onfocus="this.value=''" value="" required autocomplete="off" />
-        <p id="valFailure" class="" style="margin-top:20px"> </p>
+        <input name="otpGen" id="otpGen" type="OTP" onfocus="this.value=''" maxlength="4" value="" required autocomplete="off" />
+         <p id="otpErr" class="err"> </p>
+        <p id="valFailure" class="err" style="margin-top:20px"> </p>
       </div>
-      <button type="button" class="submit valid" id="countButton" onclick="return otpValidation()">Validate</button>
+      <button type="button" class="submit valid" id="countButton" disabled >Validate</button>
 
     </form>
   </div>
