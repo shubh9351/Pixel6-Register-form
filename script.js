@@ -55,14 +55,14 @@ document.getElementById("emailId").addEventListener("keyup",function checkEmail(
   }
 });
 
-let stateName = ["","","","","","","","","","","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
+let stateName = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
               "Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala",
-              "Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha",
-              "Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand",
+              "Madhya Pradesh","Punjab","Manipur","Meghalaya","Mizoram","Nagaland","Odisha",
+              ,"Maharashtra","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand",
               "Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli",
               "Daman and Diu","Delhi","Lakshadweep","Puducherry"];
-// adding validation to phone number
 
+// adding validation to phone number
 document.getElementById("phoneNum").addEventListener("keyup",function checkPhone(){
   var mobileNumber = document.getElementById('phoneNum').value;
   var provider = mobileNumber.slice(0, 3);
@@ -72,7 +72,8 @@ document.getElementById("phoneNum").addEventListener("keyup",function checkPhone
   var provider1= "("+provider +")";
   var state1="-"+state;
   var remain1= "-"+remain;
-  var stateNum = state.slice(1,3);
+  var stateNum=Math.floor(state/28);
+
   if(firstNum!=9 && firstNum!=8 && firstNum!="("  && firstNum!=7 && firstNum!=6 ){
     document.getElementById('errMsg').innerHTML = "** Invalid number";
     document.getElementById("state").innerHTML=" ";
@@ -87,19 +88,19 @@ document.getElementById("phoneNum").addEventListener("keyup",function checkPhone
     document.getElementById("submit").disabled = true;
     return false;
   }
-  if (provider > 621 && provider <= 800 && state>101 && state<=999) {
+  if (provider > 621 && provider <= 800 && state>000 && state<=999 && remain>0000){
     document.querySelector(".logo").setAttribute("src","jio.png");
     document.getElementById("state").innerHTML= stateName[stateNum];
     document.getElementById('phoneNum').value = provider1+state1+remain1;
     return false;
   }
-  if (provider > 801 && provider <= 920 && state>101 && state<=999){
+  if (provider > 801 && provider <= 920 && state>000 && state<=999 && remain>0000){
     document.querySelector(".logo").setAttribute("src","idea.png");
     document.getElementById("state").innerHTML=stateName[stateNum];
     document.getElementById('phoneNum').value = provider1+state1+remain1;
     return false;
   }
-  if(provider > 921 && provider <=999 && state>101 && state<=999){
+  if(provider > 921 && provider <=999 && state>000 && state<=999 && remain>0000){
     document.querySelector(".logo").setAttribute("src","vodafone.png");
     document.getElementById("state").innerHTML=stateName[stateNum];
     document.getElementById('phoneNum').value = provider1+state1+remain1;
