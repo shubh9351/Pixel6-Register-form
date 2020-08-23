@@ -57,7 +57,7 @@ document.getElementById("emailId").addEventListener("keyup",function checkEmail(
 let stateName = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
               "Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala",
               "Madhya Pradesh","Punjab","Manipur","Meghalaya","Mizoram","Nagaland","Odisha",
-              ,"Maharashtra","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand",
+              "Maharashtra","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand",
               "Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli",
               "Daman and Diu","Delhi","Lakshadweep","Puducherry"];
 
